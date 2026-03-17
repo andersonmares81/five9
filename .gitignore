@@ -15,7 +15,12 @@ STANDARS.md
 /web/dist
 /web/.env
 /server/.env
-.DS_Store
 *.log
 *.pyc
 __pycache__/
+/.amrosai
+amrosai.log
+.vscode
+amrosai_mac_install.sh
+.DS_Store
+**/.DS_Store
