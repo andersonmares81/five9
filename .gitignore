@@ -10,3 +10,8 @@ AGENTS.md
 CLAUDE.md
 MCP.md
 STANDARS.md
+/node_modules
+/web/node_modules
+/web/dist
+/web/.env
+/server/.env
