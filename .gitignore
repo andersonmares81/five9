@@ -15,3 +15,7 @@ STANDARS.md
 /web/dist
 /web/.env
 /server/.env
+.DS_Store
+*.log
+*.pyc
+__pycache__/
