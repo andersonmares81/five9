@@ -1,0 +1,24 @@
+{
+  "name": "five9-ecosystem",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "npm --workspace server run dev",
+    "dev:web": "npm --workspace web run dev",
+    "dev:server": "npm --workspace server run dev",
+    "test": "npm --workspace server test",
+    "start:local": "scripts/start_local.sh",
+    "stop:local": "scripts/stop_local.sh",
+    "start:stack": "scripts/start_stack.sh",
+    "stop:stack": "scripts/stop_stack.sh",
+    "start:backup-local": "scripts/start_backup_local.sh",
+    "stop:backup-local": "scripts/stop_backup_local.sh"
+  },
+  "dependencies": {
+    "skillfish": "^1.0.30"
+  }
+}

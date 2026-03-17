@@ -1,0 +1,41 @@
+services:
+  mysql-backup:
+    image: mysql:8.4
+    container_name: five9-mysql-backup
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: five9_backup
+      MYSQL_USER: five9
+      MYSQL_PASSWORD: five9_local_backup
+    ports:
+      - "3307:3306"
+    volumes:
+      - five9_mysql_backup_data:/var/lib/mysql
+      - ./backup-php/init:/docker-entrypoint-initdb.d:ro
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb-buffer-pool-size=256M
+
+  backup-ingest:
+    build:
+      context: ./backup-php
+    container_name: five9-backup-ingest
+    restart: unless-stopped
+    depends_on:
+      - mysql-backup
+    environment:
+      MYSQL_HOST: mysql-backup
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: five9_backup
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: changeme
+      INGEST_DEBUG: "true"
+    ports:
+      - "8088:80"
+    volumes:
+      - ./backup-php/ingest.php:/var/www/html/ingest.php:ro
+
+volumes:
+  five9_mysql_backup_data:

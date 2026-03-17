@@ -1,0 +1,12 @@
+/server/storage/media
+.env
+/.codeviz
+/.continue
+/.venv
+/.vscode
+.cursorrules
+.mcp.env
+AGENTS.md
+CLAUDE.md
+MCP.md
+STANDARS.md

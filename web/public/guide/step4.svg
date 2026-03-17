@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <rect width="320" height="200" fill="#151c2f"/>
+  <rect x="18" y="22" width="284" height="156" rx="14" fill="#1f2a44"/>
+  <text x="40" y="80" font-family="Arial" font-size="18" fill="#a7b1c7">Paso 4</text>
+  <text x="40" y="110" font-family="Arial" font-size="14" fill="#f5f7ff">DevTools</text>
+  <text x="40" y="135" font-family="Arial" font-size="12" fill="#8fa0c8">Authorization: Bearer</text>
+</svg>

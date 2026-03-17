@@ -1,0 +1,27 @@
+{
+  "day": "2026-03-12",
+  "timezone": "America/Bogota",
+  "total_calls": 292,
+  "audio": {
+    "ok": 229,
+    "missing": 40,
+    "tmp": 0,
+    "purged": 23
+  },
+  "screen": {
+    "ok": 133,
+    "missing": 159,
+    "tmp": 0
+  },
+  "transcript": {
+    "ok": 23,
+    "missing": 269
+  },
+  "output": {
+    "csvPath": "/Users/andersonmartinezrestrepo/five9/server/storage/reports/artifacts_2026-03-12.csv",
+    "missingPath": "/Users/andersonmartinezrestrepo/five9/server/storage/reports/artifacts_2026-03-12_missing.csv",
+    "mediaDir": "/Users/andersonmartinezrestrepo/five9/server/storage/media",
+    "audioDayDir": "/Users/andersonmartinezrestrepo/five9/server/storage/media/audio/03-12-2026",
+    "screenDayDir": "/Users/andersonmartinezrestrepo/five9/server/storage/media/screens/03-12-2026"
+  }
+}

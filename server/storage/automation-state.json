@@ -1,0 +1,980 @@
+{
+  "enabled": true,
+  "cron": "0 * * * *",
+  "timezone": "America/Bogota",
+  "running": true,
+  "currentTask": {
+    "type": "automation",
+    "mode": "hourly",
+    "date": "2026-03-16",
+    "phase": "transcribe",
+    "from": "2026-03-16T05:00:00.000Z",
+    "to": "2026-03-17T04:59:59.999Z",
+    "sync": {
+      "status": "succeeded",
+      "result": {
+        "from": "2026-03-16T05:00:00.000Z",
+        "to": "2026-03-17T04:59:59.999Z",
+        "order": "asc",
+        "maxPages": 20,
+        "inserted": 897,
+        "skipped": 0,
+        "lastPage": 9,
+        "totalRecords": 897
+      }
+    },
+    "prefetchProgress": {
+      "date": "2026-03-16",
+      "from": "2026-03-16T05:00:00.000Z",
+      "to": "2026-03-17T04:59:59.999Z",
+      "total": 635,
+      "done": 635,
+      "startedOffset": 0,
+      "cached": 330,
+      "okAny": 541,
+      "okAudio": 540,
+      "okScreen": 112,
+      "noMedia": 0,
+      "failed": 83,
+      "errorCounts": {
+        "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com": 31,
+        "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com": 52
+      },
+      "activeCalls": [],
+      "recentDownloads": [
+        {
+          "callId": "10000405107",
+          "status": "ok",
+          "audio": true,
+          "screen": false
+        },
+        {
+          "callId": "10000405112",
+          "status": "ok",
+          "audio": false,
+          "screen": false
+        },
+        {
+          "callId": "10000405097",
+          "status": "cached",
+          "audio": true,
+          "screen": true
+        },
+        {
+          "callId": "10000405103",
+          "status": "failed",
+          "audio": false,
+          "screen": false,
+          "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+        },
+        {
+          "callId": "10000405102",
+          "status": "ok",
+          "audio": false,
+          "screen": true
+        },
+        {
+          "callId": "10000405108",
+          "status": "cached",
+          "audio": true,
+          "screen": false
+        },
+        {
+          "callId": "10000405113",
+          "status": "ok",
+          "audio": false,
+          "screen": false
+        },
+        {
+          "callId": "10000405099",
+          "status": "cached",
+          "audio": true,
+          "screen": false
+        }
+      ],
+      "lastError": {
+        "callId": "10000404974",
+        "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+      },
+      "resumeOffset": null
+    },
+    "transcribeProgress": {
+      "date": "2026-03-16",
+      "from": "2026-03-16T05:00:00.000Z",
+      "to": "2026-03-17T04:59:59.999Z",
+      "total": 984,
+      "done": 219,
+      "startedOffset": 0,
+      "resumeOffset": null,
+      "reused": 0,
+      "succeeded": 203,
+      "noAudio": 14,
+      "failed": 2,
+      "errorCounts": {
+        "transcribe_failed": 2
+      },
+      "lastError": {
+        "callId": "10000404413",
+        "error": "transcribe_failed"
+      },
+      "currentCallId": null,
+      "recentTranscribed": [
+        {
+          "callId": "10000404467",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404476",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404485",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404454",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404452",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404482",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404471",
+          "status": "ok"
+        },
+        {
+          "callId": "10000404462",
+          "status": "ok"
+        }
+      ]
+    },
+    "updatedAt": "2026-03-17T15:30:18.613Z"
+  },
+  "lastRun": {
+    "reason": "startup",
+    "status": "running",
+    "error": null,
+    "startedAt": "2026-03-16T15:27:03.841Z",
+    "finishedAt": null,
+    "timezone": "America/Bogota",
+    "cron": "0 * * * *"
+  },
+  "recentRuns": [
+    {
+      "reason": "startup",
+      "status": "running",
+      "error": null,
+      "startedAt": "2026-03-16T15:27:03.841Z",
+      "finishedAt": null,
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "manual",
+      "status": "running",
+      "error": null,
+      "startedAt": "2026-03-16T14:41:08.224Z",
+      "finishedAt": null,
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T14:00:00.756Z",
+      "finishedAt": "2026-03-16T14:00:02.579Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T13:00:00.612Z",
+      "finishedAt": "2026-03-16T13:00:02.322Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T12:00:00.873Z",
+      "finishedAt": "2026-03-16T12:00:02.819Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T11:00:00.822Z",
+      "finishedAt": "2026-03-16T11:00:01.991Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T10:00:00.842Z",
+      "finishedAt": "2026-03-16T10:00:02.015Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T09:00:00.802Z",
+      "finishedAt": "2026-03-16T09:00:01.996Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T08:00:00.291Z",
+      "finishedAt": "2026-03-16T08:00:02.078Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T07:00:00.759Z",
+      "finishedAt": "2026-03-16T07:00:02.181Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T06:00:00.735Z",
+      "finishedAt": "2026-03-16T06:00:01.848Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    },
+    {
+      "reason": "schedule",
+      "status": "succeeded",
+      "error": null,
+      "startedAt": "2026-03-16T05:00:00.927Z",
+      "finishedAt": "2026-03-16T05:00:02.439Z",
+      "timezone": "America/Bogota",
+      "cron": "0 * * * *"
+    }
+  ],
+  "days": {
+    "2026-03-12": {
+      "sync": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-13T04:00:01.115Z",
+        "mode": "hourly",
+        "result": {
+          "from": "2026-03-12T05:00:00.000Z",
+          "to": "2026-03-13T04:59:59.999Z",
+          "order": "asc",
+          "maxPages": 20,
+          "inserted": 1981,
+          "skipped": 0,
+          "lastPage": 20,
+          "totalRecords": 1981
+        }
+      },
+      "prefetch": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-13T04:00:01.118Z",
+        "mode": "hourly"
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-13T04:00:01.135Z",
+        "mode": "hourly"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 0,
+          "date": "2026-03-12",
+          "from": "2026-03-12T05:00:00.000Z",
+          "to": "2026-03-13T04:59:59.999Z",
+          "sinceChangedAt": "2026-03-12T19:23:12.396Z",
+          "sinceCallId": "10000400221",
+          "cursorChangedAt": "2026-03-12T19:23:12.396Z",
+          "cursorCallId": "10000400221"
+        },
+        "updatedAt": "2026-03-13T04:00:01.170Z",
+        "mode": "hourly"
+      },
+      "lastUpdatedAt": "2026-03-13T04:00:01.170Z"
+    },
+    "2026-03-01": {
+      "sync": {
+        "status": "succeeded",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T15:11:52.317Z",
+        "mode": "backfill",
+        "result": {
+          "from": "2026-03-01T05:00:00.000Z",
+          "to": "2026-03-02T04:59:59.999Z",
+          "order": "asc",
+          "maxPages": 20,
+          "inserted": 0,
+          "skipped": 0,
+          "lastPage": 1,
+          "totalRecords": null
+        }
+      },
+      "prefetch": {
+        "status": "succeeded",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T15:11:52.326Z",
+        "mode": "backfill",
+        "result": {
+          "date": "2026-03-01",
+          "from": "2026-03-01T05:00:00.000Z",
+          "to": "2026-03-02T04:59:59.999Z",
+          "databaseCatalog": "ONLINE_DB",
+          "total": 0,
+          "done": 0,
+          "startedOffset": 0,
+          "cached": 0,
+          "okAny": 0,
+          "okAudio": 0,
+          "okScreen": 0,
+          "noMedia": 0,
+          "failed": 0,
+          "errors": []
+        }
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-16T15:11:52.329Z",
+        "mode": "backfill"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 0,
+          "date": "2026-03-01",
+          "from": "2026-03-01T05:00:00.000Z",
+          "to": "2026-03-02T04:59:59.999Z",
+          "sinceChangedAt": "1970-01-01T00:00:00.000Z",
+          "sinceCallId": "",
+          "cursorChangedAt": "1970-01-01T00:00:00.000Z",
+          "cursorCallId": ""
+        },
+        "updatedAt": "2026-03-16T15:11:52.367Z",
+        "mode": "backfill"
+      },
+      "lastUpdatedAt": "2026-03-16T15:11:52.367Z"
+    },
+    "2026-03-02": {
+      "sync": {
+        "status": "succeeded",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T15:12:03.091Z",
+        "mode": "backfill",
+        "result": {
+          "from": "2026-03-02T05:00:00.000Z",
+          "to": "2026-03-03T04:59:59.999Z",
+          "order": "asc",
+          "maxPages": 20,
+          "inserted": 2000,
+          "skipped": 0,
+          "lastPage": 20,
+          "totalRecords": 3852
+        }
+      },
+      "prefetch": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T14:00:02.434Z",
+        "mode": "backfill"
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-16T14:00:02.449Z",
+        "mode": "backfill"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 0,
+          "date": "2026-03-02",
+          "from": "2026-03-02T05:00:00.000Z",
+          "to": "2026-03-03T04:59:59.999Z",
+          "sinceChangedAt": "2026-03-13T17:10:40.559Z",
+          "sinceCallId": "10000372168",
+          "cursorChangedAt": "2026-03-13T17:10:40.559Z",
+          "cursorCallId": "10000372168"
+        },
+        "updatedAt": "2026-03-16T14:00:02.510Z",
+        "mode": "backfill"
+      },
+      "lastUpdatedAt": "2026-03-16T15:12:03.091Z"
+    },
+    "2026-03-13": {
+      "sync": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-14T04:00:00.434Z",
+        "mode": "hourly",
+        "result": {
+          "from": "2026-03-13T05:00:00.000Z",
+          "to": "2026-03-14T04:59:59.999Z",
+          "order": "asc",
+          "maxPages": 20,
+          "inserted": 2000,
+          "skipped": 0,
+          "lastPage": 20,
+          "totalRecords": 2734
+        }
+      },
+      "prefetch": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-14T04:00:00.438Z",
+        "mode": "hourly",
+        "result": {
+          "date": "2026-03-13",
+          "from": "2026-03-13T05:00:00.000Z",
+          "to": "2026-03-14T04:59:59.999Z",
+          "databaseCatalog": "ONLINE_DB",
+          "total": 703,
+          "done": 703,
+          "startedOffset": 0,
+          "cached": 188,
+          "okAny": 691,
+          "okAudio": 691,
+          "okScreen": 268,
+          "noMedia": 0,
+          "failed": 0,
+          "errors": []
+        }
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-14T04:00:00.448Z",
+        "mode": "hourly"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 0,
+          "date": "2026-03-13",
+          "from": "2026-03-13T05:00:00.000Z",
+          "to": "2026-03-14T04:59:59.999Z",
+          "sinceChangedAt": "2026-03-13T21:11:09.676Z",
+          "sinceCallId": "10000402363",
+          "cursorChangedAt": "2026-03-13T21:11:09.676Z",
+          "cursorCallId": "10000402363"
+        },
+        "updatedAt": "2026-03-14T04:00:00.472Z",
+        "mode": "hourly"
+      },
+      "lastUpdatedAt": "2026-03-14T04:00:00.472Z"
+    },
+    "2026-03-14": {
+      "sync": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-15T04:00:13.120Z",
+        "mode": "hourly"
+      },
+      "prefetch": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-15T04:00:13.122Z",
+        "mode": "hourly"
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-15T04:00:13.219Z",
+        "mode": "hourly"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 0,
+          "date": "2026-03-14",
+          "from": "2026-03-14T05:00:00.000Z",
+          "to": "2026-03-15T04:59:59.999Z",
+          "sinceChangedAt": "1970-01-01T00:00:00.000Z",
+          "sinceCallId": "",
+          "cursorChangedAt": "1970-01-01T00:00:00.000Z",
+          "cursorCallId": ""
+        },
+        "updatedAt": "2026-03-15T04:00:13.758Z",
+        "mode": "hourly"
+      },
+      "lastUpdatedAt": "2026-03-15T04:00:13.758Z"
+    },
+    "2026-03-15": {
+      "sync": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T04:00:01.211Z",
+        "mode": "hourly"
+      },
+      "prefetch": {
+        "status": "failed",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T04:00:01.212Z",
+        "mode": "hourly"
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-16T04:00:01.222Z",
+        "mode": "hourly"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 0,
+          "date": "2026-03-15",
+          "from": "2026-03-15T05:00:00.000Z",
+          "to": "2026-03-16T04:59:59.999Z",
+          "sinceChangedAt": "1970-01-01T00:00:00.000Z",
+          "sinceCallId": "",
+          "cursorChangedAt": "1970-01-01T00:00:00.000Z",
+          "cursorCallId": ""
+        },
+        "updatedAt": "2026-03-16T04:00:01.239Z",
+        "mode": "hourly"
+      },
+      "lastUpdatedAt": "2026-03-16T04:00:01.239Z"
+    },
+    "2026-03-16": {
+      "sync": {
+        "status": "succeeded",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T15:27:10.493Z",
+        "mode": "hourly",
+        "result": {
+          "from": "2026-03-16T05:00:00.000Z",
+          "to": "2026-03-17T04:59:59.999Z",
+          "order": "asc",
+          "maxPages": 20,
+          "inserted": 897,
+          "skipped": 0,
+          "lastPage": 9,
+          "totalRecords": 897
+        }
+      },
+      "prefetch": {
+        "status": "succeeded",
+        "error": "wfo_session_not_configured",
+        "updatedAt": "2026-03-16T16:03:24.076Z",
+        "mode": "hourly",
+        "result": {
+          "date": "2026-03-16",
+          "from": "2026-03-16T05:00:00.000Z",
+          "to": "2026-03-17T04:59:59.999Z",
+          "databaseCatalog": "ONLINE_DB",
+          "total": 635,
+          "done": 635,
+          "startedOffset": 0,
+          "cached": 330,
+          "okAny": 541,
+          "okAudio": 540,
+          "okScreen": 112,
+          "noMedia": 0,
+          "failed": 83,
+          "errors": [
+            {
+              "callId": "10000404939",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404900",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404903",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404933",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404931",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404916",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404901",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404913",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404906",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404908",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404926",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404941",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404936",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404918",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404922",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404920",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404963",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404953",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404972",
+              "error": "screen_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            },
+            {
+              "callId": "10000404974",
+              "error": "audio_download_failed@wfo-vic-1-ptoo.s3.us-east-2.amazonaws.com"
+            }
+          ]
+        }
+      },
+      "transcribe": {
+        "status": "failed",
+        "error": "column reference \"call_id\" is ambiguous",
+        "updatedAt": "2026-03-16T15:11:49.800Z",
+        "mode": "hourly"
+      },
+      "backup": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "pushed": 536,
+          "date": "2026-03-16",
+          "from": "2026-03-16T05:00:00.000Z",
+          "to": "2026-03-17T04:59:59.999Z",
+          "sinceChangedAt": "2026-03-16T14:36:07.577Z",
+          "sinceCallId": "10000404685",
+          "cursorChangedAt": "2026-03-16T15:11:49.784Z",
+          "cursorCallId": "10000404741"
+        },
+        "updatedAt": "2026-03-16T15:11:52.180Z",
+        "mode": "hourly"
+      },
+      "lastUpdatedAt": "2026-03-16T16:03:24.076Z"
+    }
+  },
+  "monthStats": [
+    {
+      "date": "2026-03-01",
+      "totalCalls": 0,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "succeeded",
+      "prefetchStatus": "succeeded",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-02",
+      "totalCalls": 3852,
+      "audioProcessed": 765,
+      "audioLocal": 765,
+      "screenLocal": 380,
+      "transcriptCount": 0,
+      "syncStatus": "succeeded",
+      "prefetchStatus": "failed",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-03",
+      "totalCalls": 3557,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-04",
+      "totalCalls": 3144,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-05",
+      "totalCalls": 3146,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-06",
+      "totalCalls": 3159,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-07",
+      "totalCalls": 0,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-08",
+      "totalCalls": 0,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-09",
+      "totalCalls": 3510,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-10",
+      "totalCalls": 3481,
+      "audioProcessed": 24,
+      "audioLocal": 16,
+      "screenLocal": 5,
+      "transcriptCount": 8,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-11",
+      "totalCalls": 3098,
+      "audioProcessed": 2608,
+      "audioLocal": 2329,
+      "screenLocal": 1258,
+      "transcriptCount": 279,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    },
+    {
+      "date": "2026-03-12",
+      "totalCalls": 2003,
+      "audioProcessed": 1672,
+      "audioLocal": 1622,
+      "screenLocal": 820,
+      "transcriptCount": 50,
+      "syncStatus": "failed",
+      "prefetchStatus": "failed",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-13",
+      "totalCalls": 2010,
+      "audioProcessed": 2003,
+      "audioLocal": 1799,
+      "screenLocal": 973,
+      "transcriptCount": 204,
+      "syncStatus": "failed",
+      "prefetchStatus": "failed",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-14",
+      "totalCalls": 0,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "failed",
+      "prefetchStatus": "failed",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-15",
+      "totalCalls": 0,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "failed",
+      "prefetchStatus": "failed",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-16",
+      "totalCalls": 993,
+      "audioProcessed": 936,
+      "audioLocal": 706,
+      "screenLocal": 424,
+      "transcriptCount": 230,
+      "syncStatus": "succeeded",
+      "prefetchStatus": "succeeded",
+      "transcribeStatus": "failed",
+      "backupStatus": "succeeded",
+      "lastError": "column reference \"call_id\" is ambiguous",
+      "status": "attention"
+    },
+    {
+      "date": "2026-03-17",
+      "totalCalls": 0,
+      "audioProcessed": 0,
+      "audioLocal": 0,
+      "screenLocal": 0,
+      "transcriptCount": 0,
+      "syncStatus": "pending",
+      "prefetchStatus": "pending",
+      "transcribeStatus": "pending",
+      "backupStatus": "pending",
+      "lastError": null,
+      "status": "pending"
+    }
+  ],
+  "backfill": {
+    "currentMonth": "2026-03",
+    "pendingDates": [
+      "2026-03-01",
+      "2026-03-02",
+      "2026-03-03",
+      "2026-03-04",
+      "2026-03-05",
+      "2026-03-06",
+      "2026-03-07",
+      "2026-03-08",
+      "2026-03-09",
+      "2026-03-10",
+      "2026-03-11",
+      "2026-03-12",
+      "2026-03-13",
+      "2026-03-14",
+      "2026-03-15",
+      "2026-03-16"
+    ],
+    "processedDates": []
+  },
+  "updatedAt": "2026-03-17T15:41:45.102Z"
+}

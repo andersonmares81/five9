@@ -1,0 +1,225 @@
+import axios from "axios";
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function safeUrl(value) {
+  try {
+    return new URL(value);
+  } catch {
+    return null;
+  }
+}
+
+function inferExpiryMs(urlValue) {
+  const url = safeUrl(urlValue);
+  if (!url) return null;
+  const expires = Number(url.searchParams.get("X-Amz-Expires") || "");
+  const dateRaw = url.searchParams.get("X-Amz-Date");
+  if (!expires || !dateRaw) return null;
+  const match = String(dateRaw).match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/);
+  if (!match) return null;
+  const [, year, month, day, hour, minute, second] = match;
+  const start = Date.UTC(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    Number(hour),
+    Number(minute),
+    Number(second)
+  );
+  if (!Number.isFinite(start)) return null;
+  return start + expires * 1000;
+}
+
+function extractProgressId(payload) {
+  if (!payload) return null;
+  if (typeof payload === "string") return payload.trim() || null;
+  if (typeof payload === "object") {
+    const direct =
+      payload.progressId ||
+      payload.ProgressId ||
+      payload.id ||
+      payload.Id ||
+      payload.key ||
+      payload.Key;
+    if (typeof direct === "string" && direct.trim()) return direct.trim();
+    if (typeof direct === "number" && Number.isFinite(direct)) return String(direct);
+  }
+  return null;
+}
+
+function collectUrls(node, found) {
+  if (!node) return;
+  if (typeof node === "string") {
+    const text = node.trim();
+    if (!text) return;
+    const matches = text.match(/https?:\/\/[^\s"'<>]+/gi);
+    if (matches) {
+      for (const item of matches) found.add(item);
+    }
+    return;
+  }
+  if (Array.isArray(node)) {
+    for (const item of node) collectUrls(item, found);
+    return;
+  }
+  if (typeof node === "object") {
+    for (const value of Object.values(node)) collectUrls(value, found);
+  }
+}
+
+function pickByPattern(urls, patterns) {
+  for (const url of urls) {
+    const lower = String(url).toLowerCase();
+    if (patterns.some((pattern) => pattern.test(lower))) return url;
+  }
+  return null;
+}
+
+const mediaCache = new Map();
+
+function cacheKey({ eventNumber, catalog }) {
+  return `${catalog}:${eventNumber}`;
+}
+
+export function clearPreparedMediaCache() {
+  mediaCache.clear();
+}
+
+export async function prepareInteractionRecordingMedia({
+  eventNumber,
+  databaseCatalog = "ONLINE_DB",
+  eventType = "Play",
+  session
+}) {
+  const callId = String(eventNumber || "").trim();
+  if (!callId) {
+    return { ok: false, error: "missing_event_number" };
+  }
+  if (!session?.baseUrl || !session?.headers) {
+    return { ok: false, error: "wfo_session_not_configured" };
+  }
+
+  const key = cacheKey({ eventNumber: callId, catalog: databaseCatalog });
+  const cached = mediaCache.get(key);
+  if (cached?.expiresAt && cached.expiresAt > Date.now() + 60_000) {
+    return { ok: true, cached: true, ...cached };
+  }
+
+  const prepareUrl = `${session.baseUrl.replace(/\/$/, "")}/api/InteractionRecordings/PrepareEvent`;
+  const baseOrigin = safeUrl(session.baseUrl)?.origin || null;
+  const origin = session.headers?.origin || baseOrigin || "https://cloud1656.wfo.five9.com";
+  const referer =
+    session.headers?.referer ||
+    (baseOrigin ? `${baseOrigin}/five9wfo/wfointeractionrecordings/` : "https://cloud1656.wfo.five9.com/five9wfo/wfointeractionrecordings/");
+  const body = {
+    EventNumber: Number(callId),
+    DatabaseCatalog: databaseCatalog,
+    EventType: eventType
+  };
+
+  const prepareResponse = await axios.post(prepareUrl, body, {
+    headers: {
+      ...session.headers,
+      origin,
+      referer,
+      accept: "application/json, text/plain, */*",
+      "content-type": "application/json;charset=UTF-8",
+      "x-requested-with": "XMLHttpRequest"
+    }
+  });
+
+  const progressId = extractProgressId(prepareResponse.data);
+  if (!progressId) {
+    return { ok: false, error: "prepare_event_missing_progress" };
+  }
+
+  const progressUrl = `${session.baseUrl.replace(/\/$/, "")}/api/InteractionRecordings/PrepareEvent/Progress/${progressId}/${databaseCatalog}`;
+
+  const foundUrls = new Set();
+  let lastPayload = null;
+
+  for (let attempt = 0; attempt < 16; attempt += 1) {
+    const progressResponse = await axios.get(progressUrl, {
+      headers: {
+        ...session.headers,
+        origin,
+        referer,
+        accept: "application/json, text/plain, */*",
+        "x-requested-with": "XMLHttpRequest"
+      }
+    });
+    lastPayload = progressResponse.data;
+    collectUrls(progressResponse.data, foundUrls);
+
+    const urls = Array.from(foundUrls);
+    const audioUrl =
+      pickByPattern(urls, [/session\.mp3/, /\.mp3\?/]) ||
+      pickByPattern(urls, [/session\.m4a/, /\.m4a\?/]) ||
+      pickByPattern(urls, [/\.wav\?/]);
+    const screenUrl = pickByPattern(urls, [/session\.mp4/, /\.mp4\?/, /\.webm\?/]);
+    const sessionJsonUrl = pickByPattern(urls, [/session\.json/, /\.json\?/]);
+
+    const isDone =
+      Boolean(progressResponse.data?.Completed) ||
+      Boolean(progressResponse.data?.completed) ||
+      progressResponse.data?.Progress === 100 ||
+      progressResponse.data?.progress === 100 ||
+      Boolean(audioUrl || screenUrl || sessionJsonUrl);
+
+    if (isDone && (audioUrl || screenUrl || sessionJsonUrl)) {
+      const expiresAt =
+        inferExpiryMs(audioUrl) ||
+        inferExpiryMs(screenUrl) ||
+        inferExpiryMs(sessionJsonUrl) ||
+        Date.now() + 60 * 60 * 1000;
+
+      const value = {
+        eventNumber: callId,
+        databaseCatalog,
+        eventType,
+        progressId,
+        audioUrl: audioUrl || null,
+        screenUrl: screenUrl || null,
+        sessionJsonUrl: sessionJsonUrl || null,
+        expiresAt
+      };
+      mediaCache.set(key, value);
+      return { ok: true, cached: false, ...value };
+    }
+
+    await sleep(350 + attempt * 120);
+  }
+
+  const urls = Array.from(foundUrls);
+  const audioUrl =
+    pickByPattern(urls, [/session\.mp3/, /\.mp3\?/]) ||
+    pickByPattern(urls, [/session\.m4a/, /\.m4a\?/]) ||
+    pickByPattern(urls, [/\.wav\?/]);
+  const screenUrl = pickByPattern(urls, [/session\.mp4/, /\.mp4\?/, /\.webm\?/]);
+  const sessionJsonUrl = pickByPattern(urls, [/session\.json/, /\.json\?/]);
+
+  if (audioUrl || screenUrl || sessionJsonUrl) {
+    const expiresAt =
+      inferExpiryMs(audioUrl) ||
+      inferExpiryMs(screenUrl) ||
+      inferExpiryMs(sessionJsonUrl) ||
+      Date.now() + 30 * 60 * 1000;
+    const value = {
+      eventNumber: callId,
+      databaseCatalog,
+      eventType,
+      progressId,
+      audioUrl: audioUrl || null,
+      screenUrl: screenUrl || null,
+      sessionJsonUrl: sessionJsonUrl || null,
+      expiresAt
+    };
+    mediaCache.set(key, value);
+    return { ok: true, cached: false, ...value };
+  }
+
+  return { ok: false, error: "prepare_event_no_media", progressId, lastPayload };
+}

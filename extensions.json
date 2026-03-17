@@ -1,0 +1,56 @@
+{
+  "recommendations": [
+    // ── PHP ──────────────────────────────────────────────────
+    "bmewburn.vscode-intelephense-client",     // PHP intellisense premium
+    "xdebug.php-debug",                        // Xdebug
+    "neilbrayfield.php-docblocker",            // PHPDoc automático
+    "rifi2k.format-html-in-php",              // HTML en PHP
+    "MehediDracula.php-namespace-resolver",   // Resolver namespaces
+
+    // ── JavaScript / Node ────────────────────────────────────
+    "esbenp.prettier-vscode",                  // Formatter
+    "dbaeumer.vscode-eslint",                  // ESLint
+    "christian-kohler.npm-intellisense",       // npm packages
+    "Orta.vscode-jest",                        // Jest runner
+
+    // ── Base de datos ────────────────────────────────────────
+    "cweijan.vscode-mysql-client2",           // MySQL client integrado
+    "inferrinizzard.prettier-sql-vscode",      // SQL formatter
+
+    // ── Git ───────────────────────────────────────────────────
+    "eamodio.gitlens",                         // Git supercharged
+    "mhutchie.git-graph",                      // Git graph visual
+    "donjayamanne.githistory",                // Git history
+
+    // ── Apariencia ────────────────────────────────────────────
+    "zhuangtongfa.material-theme",            // One Dark Pro
+    "PKief.material-icon-theme",              // Iconos
+    "aaron-bond.better-comments",             // Comentarios coloreados
+    "oderwat.indent-rainbow",                 // Indentación coloreada
+    "CoenraadS.bracket-pair-colorizer-2",    // Bracket colorizer
+
+    // ── Productividad ─────────────────────────────────────────
+    "christian-kohler.path-intellisense",    // Path autocomplete
+    "formulahendry.auto-rename-tag",          // Auto rename HTML tags
+    "steoates.autoimport",                    // Auto import JS
+    "dsznajder.es7-react-js-snippets",       // Snippets JS
+    "xabikos.JavaScriptSnippets",             // JavaScript snippets
+    "ms-vscode.vscode-typescript-tslint-plugin",
+
+    // ── REST / API ────────────────────────────────────────────
+    "humao.rest-client",                      // REST client (.http files)
+    "rangav.vscode-thunder-client",           // Thunder Client (Postman-like)
+
+    // ── Utilidades ────────────────────────────────────────────
+    "EditorConfig.EditorConfig",              // .editorconfig support
+    "mikestead.dotenv",                       // .env syntax
+    "Gruntfuggly.todo-tree",                  // TODO tracker
+    "streetsidesoftware.code-spell-checker", // Spell checker
+    "ms-vscode-remote.remote-ssh",           // SSH para Hostinger
+    "Tyriar.terminal-here",                   // Terminal in folder
+
+    // ── IA / Copilot ─────────────────────────────────────────
+    "GitHub.copilot",
+    "GitHub.copilot-chat"
+  ]
+}
