@@ -1,4 +1,4 @@
-# Five9 Ecosystem — AMR Tech
+# Five9 Ecosystem — GSD Tech
 
 > Sistema de integración, transcripción y análisis de llamadas Five9 con API REST, backup y dashboard.
 
@@ -469,4 +469,4 @@ Verificar credenciales en `.env` y que el usuario tenga permisos API.
 
 ## Licencia
 
-MIT License - AMR Tech
+MIT License - GSD Tech
