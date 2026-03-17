@@ -887,9 +887,9 @@
       "date": "2026-03-13",
       "totalCalls": 2010,
       "audioProcessed": 2003,
-      "audioLocal": 1799,
+      "audioLocal": 1797,
       "screenLocal": 973,
-      "transcriptCount": 204,
+      "transcriptCount": 206,
       "syncStatus": "failed",
       "prefetchStatus": "failed",
       "transcribeStatus": "failed",
@@ -976,5 +976,5 @@
     ],
     "processedDates": []
   },
-  "updatedAt": "2026-03-17T15:41:45.102Z"
+  "updatedAt": "2026-03-17T16:00:59.097Z"
 }
