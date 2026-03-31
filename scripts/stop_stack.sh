@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 set -euo pipefail
 
 frontend_pids=$(lsof -tiTCP:5173 -sTCP:LISTEN || true)

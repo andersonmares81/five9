@@ -1,4 +1,4 @@
-# Five9 Ecosystem — AMR Tech
+# Five9 Ecosystem — GSD Tech
 
 > Sistema de integración, transcripción y análisis de llamadas Five9 con API REST, backup y dashboard.
 
@@ -47,6 +47,7 @@ five9/
 - **PostgreSQL** 14+ (datos principales)
 - **MySQL** 8+ (backup only)
 - **FFmpeg** (para procesamiento de audio)
+- **Python** 3.10+ (requerido para `faster-whisper` local)
 - **OpenAI API Key** (transcripción y análisis)
 - **Cuenta Five9** con acceso API
 
@@ -136,6 +137,29 @@ cd server && npm run dev
 ```
 
 El servidor iniciara en `http://localhost:3001`
+
+### Instalación en Windows 11 + WSL + XAMPP
+
+Para ejecutar el sistema completo en Windows 11 se recomienda esta topología:
+
+- `WSL2`: backend Node.js, PostgreSQL, Python, FFmpeg y tareas de sincronización
+- `XAMPP`: Apache/PHP y, si lo prefieres, MySQL para `backup-php` y `web/api`
+- `Windows`: navegador, Apache y utilidades de operación
+
+Comandos agregados para ese flujo:
+
+```bash
+npm run check:windows
+npm run start:local:windows
+npm run stop:local:windows
+npm run build:web:windows
+```
+
+La guía paso a paso y la plantilla de VirtualHost están en:
+
+- [.amrosai/docs/03-windows-11-wsl-xampp.md](/Users/andersonmartinezrestrepo/five9/.amrosai/docs/03-windows-11-wsl-xampp.md)
+- [.amrosai/docs/04-manual-instalacion-configuracion-y-uso.md](/Users/andersonmartinezrestrepo/five9/.amrosai/docs/04-manual-instalacion-configuracion-y-uso.md)
+- [scripts/windows/apache/five9-xampp-vhost.conf](/Users/andersonmartinezrestrepo/five9/scripts/windows/apache/five9-xampp-vhost.conf)
 
 ---
 
@@ -349,6 +373,8 @@ MAX_LIMIT=100
 MAX_TIME_SKEW=300
 ```
 
+También puedes partir de [web/.env.example](/Users/andersonmartinezrestrepo/five9/web/.env.example).
+
 ### Autenticación
 
 La API usa autenticación con:
@@ -469,4 +495,4 @@ Verificar credenciales en `.env` y que el usuario tenga permisos API.
 
 ## Licencia
 
-MIT License - AMR Tech
+MIT License - GSD Tech

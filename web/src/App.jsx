@@ -215,10 +215,10 @@ function userErrorMessage(message) {
     return "OpenAI is not configured. Either set OPENAI_API_KEY on the server, or use local STT (faster-whisper) for transcription.";
   }
   if (message === "python_not_found") {
-    return "Python was not found on the server. Install python3 or set PYTHON_BIN, then restart the service.";
+    return "Python was not found in the server runtime. Install Python in WSL/Linux or set PYTHON_BIN explicitly, then restart the service.";
   }
   if (message === "faster_whisper_not_installed") {
-    return "Local transcription is not installed. Run `python3 -m pip install -U faster-whisper` (and ensure ffmpeg is installed), then restart the service.";
+    return "Local transcription is not installed. Run `python3 -m pip install -U faster-whisper` in the server environment (WSL/Linux) and ensure ffmpeg is installed, then restart the service.";
   }
   if (message === "transcribe_failed") {
     return "Transcription failed. Check server logs for the underlying error.";
@@ -245,7 +245,7 @@ function userErrorMessage(message) {
     return "The ingest/backup endpoint is unreachable. WFO sync can continue, but ingest is offline.";
   }
   if (message.includes("ECONNREFUSED 127.0.0.1:8088")) {
-    return "Local ingest is offline on 127.0.0.1:8088. Start the local MySQL/PHP Docker stack or change BACKUP_ENDPOINT.";
+    return "Local ingest is offline on 127.0.0.1:8088. Start the local MySQL/PHP stack in Docker or XAMPP, or change BACKUP_ENDPOINT.";
   }
   if (message === "wfo_sync_range_failed") {
     return "WFO range sync failed. Check the detailed server error or refresh the WFO session.";
