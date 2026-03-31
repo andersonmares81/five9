@@ -4,6 +4,10 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
 
+if [[ -d "/opt/homebrew/bin" ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 BACKEND_PORT=3001
 FRONTEND_PORT=5173
 BACKEND_LOG="${TMPDIR:-/tmp}/five9-backend.log"
@@ -34,6 +38,10 @@ done < server/.env
 
 if [[ "${DATABASE_URL:-}" == *"five9-postgres"* ]]; then
   export DATABASE_URL="postgres://five9:five9_local_dev@localhost:5432/five9"
+fi
+
+if [[ -z "${PYTHON_BIN:-}" && -x "${ROOT_DIR}/.venv/bin/python" ]]; then
+  export PYTHON_BIN="${ROOT_DIR}/.venv/bin/python"
 fi
 
 nohup npm --workspace server run start </dev/null >"$BACKEND_LOG" 2>&1 &

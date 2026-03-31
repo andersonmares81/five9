@@ -386,10 +386,16 @@ function filterMonthStats(monthStats = [], selectedMonth = "") {
   return monthStats.filter(d => d.date?.startsWith(selectedMonth));
 }
 
+function parseMonthDate(monthStr, day = 1) {
+  const [year, month] = String(monthStr || "").split("-").map(Number);
+  if (!year || !month) return null;
+  const date = new Date(year, month - 1, day);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
 function getMonthDisplayName(monthStr) {
-  if (!monthStr) return "";
-  const [year, month] = monthStr.split("-");
-  const date = new Date(`${year}-${month}-01`);
+  const date = parseMonthDate(monthStr, 1);
+  if (!date) return "";
   return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
@@ -418,8 +424,9 @@ function buildAutomationCalendarWeeks(monthStats = []) {
   if (!firstDayStr) return [];
 
   const [year, month] = firstDayStr.split("-").slice(0, 2);
-  const firstDay = new Date(`${year}-${month}-01`);
-  const lastDay = new Date(new Date(firstDay).setMonth(firstDay.getMonth() + 1, 0));
+  const firstDay = parseMonthDate(`${year}-${month}`, 1);
+  if (!firstDay) return [];
+  const lastDay = new Date(Number(year), Number(month), 0);
 
   const startWeekday = firstDay.getDay();
   const totalDays = lastDay.getDate();
@@ -434,7 +441,7 @@ function buildAutomationCalendarWeeks(monthStats = []) {
 
   for (let day = 1; day <= totalDays; day++) {
     const dateStr = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-    const dayOfWeek = new Date(dateStr).getDay();
+    const dayOfWeek = new Date(Number(year), Number(month) - 1, day).getDay();
 
     // Skip weekends (0=Sunday, 6=Saturday)
     if (dayOfWeek === 0 || dayOfWeek === 6) continue;
